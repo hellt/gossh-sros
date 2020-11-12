@@ -51,6 +51,9 @@ func (d *Device) SendCommand(cmd string) error {
 	if _, err := io.WriteString(d.Stdin, cmd+"\r\n"); err != nil {
 		return err
 	}
+	if _, err := io.WriteString(d.Stdin, "logout\n"); err != nil {
+		return err
+	}
 	return nil
 }
 
