@@ -62,14 +62,11 @@ func (d *Device) SendConfigSet(cmds []string) error {
 		if _, err := io.WriteString(d.Stdin, cmd+"\n"); err != nil {
 			return err
 		}
-		fmt.Println("here1")
-		// time.Sleep(time.Second)
 	}
 	return nil
 }
 
 func (d *Device) PrintOutput() {
-	fmt.Println("in printer")
 	r := bufio.NewReader(d.Stdout)
 	for {
 		// TODO: SR OS does not return EOF
